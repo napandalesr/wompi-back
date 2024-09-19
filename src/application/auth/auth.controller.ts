@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Inject } from '@nestjs/common';
+import { Controller, Post, Body, Inject, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -10,7 +10,7 @@ export class AuthController {
     @Body('email') email: string,
     @Body('password') password: string,
   ) {
-    return this.authService.register(email, password);
+    return await this.authService.register(email, password);
   }
 
   @Post('login')
@@ -18,6 +18,6 @@ export class AuthController {
     @Body('email') email: string,
     @Body('password') password: string,
   ) {
-    return this.authService.login(email, password);
+    return await this.authService.login(email, password);
   }
 }

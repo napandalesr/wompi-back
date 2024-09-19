@@ -7,10 +7,11 @@ export class UserService {
   constructor(private readonly userRepository: UserRepository) {}
 
   async create(user: User): Promise<User> {
-    return this.userRepository.create(user);
+    const { id, email, created } =  await this.userRepository.create(user);
+    return { id, email, created };
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return this.userRepository.findByEmail(email);
+    return await this.userRepository.findByEmail(email);
   }
 }

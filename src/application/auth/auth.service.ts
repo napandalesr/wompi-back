@@ -16,13 +16,13 @@ export class AuthService {
     const user = new User();
     user.email = email;
     user.password = hashedPassword;
-    return this.userService.create(user);
+    return await this.userService.create(user);
   }
 
   async login(email: string, password: string): Promise<{ accessToken: string }> {
     const user = await this.userService.findByEmail(email);
     if (!user || !(await bcrypt.compare(password, user.password))) {
-      throw new Error('Invalid credentials');
+      throw new Error('Crendenciales invalidas');
     }
 
     const payload = { email: user.email, sub: user.id };
@@ -30,4 +30,5 @@ export class AuthService {
       accessToken: this.jwtService.sign(payload),
     };
   }
+
 }
