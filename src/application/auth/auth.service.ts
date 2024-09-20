@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { User } from 'src/domain/user/user.entity';
+import { User } from '../../domain/user/user.entity';
 import { UserService } from '../user/user.service';
 
 @Injectable()
@@ -20,6 +20,8 @@ export class AuthService {
   }
 
   async login(email: string, password: string): Promise<{ accessToken: string }> {
+    console.log('mmmmmmmm',email);
+    
     const user = await this.userService.findByEmail(email);
     if (!user || !(await bcrypt.compare(password, user.password))) {
       throw new Error('Crendenciales invalidas');
