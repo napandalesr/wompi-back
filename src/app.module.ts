@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './infrastructure/auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ProductsModule } from './infrastructure/product/products.module';
+import { PaymentModule } from './infrastructure/payment/payment.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { ProductsModule } from './infrastructure/product/products.module';
       envFilePath: '.env'
     }),
     AuthModule,
-    ProductsModule
+    ProductsModule,
+    PaymentModule
   ],
   controllers: [AppController],
   providers: [AppService],
