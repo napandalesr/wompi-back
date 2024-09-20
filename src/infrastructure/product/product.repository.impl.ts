@@ -14,4 +14,8 @@ export class ProductRepositoryImpl implements ProductRepository {
   async create(product: Product): Promise<Product> {
     return await this.productRepository.save(product);
   }
+
+  async find(): Promise<Product[]> {
+    return await this.productRepository.find();
+  }
 }
