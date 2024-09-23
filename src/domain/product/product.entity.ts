@@ -11,9 +11,24 @@ export class Product {
   @Column('decimal')
   price: number;
 
+  @Column('decimal', {
+    nullable: true
+  })
+  oldPrice?: number;
+
   @Column()
   shipping: string;
 
+  @Column({
+    nullable: true
+  })
+  status?: string;
+
   @Column()
   description: string;
+
+  @Column({
+    nullable: true
+  })
+  images?: string;
 }
