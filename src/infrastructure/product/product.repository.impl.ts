@@ -18,4 +18,10 @@ export class ProductRepositoryImpl implements ProductRepository {
   async find(): Promise<Product[]> {
     return await this.productRepository.find();
   }
+
+  async findOne(id: number): Promise<Product> {
+    return await this.productRepository.findOne({
+      where: {id}
+    })
+  }
 }

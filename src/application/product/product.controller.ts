@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, UseGuards, Inject } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, Inject, Param } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ProductsService } from './product.service';
 import { Product } from '../../domain/product/product.entity';
@@ -17,5 +17,12 @@ export class ProductsController {
   @Get()
   async findAll(): Promise<Product[]> {
     return await this.productsService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(
+    @Param('id') id: number
+  ): Promise <Product> {
+    return await this.productsService.findOne(id);
   }
 }

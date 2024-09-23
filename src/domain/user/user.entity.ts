@@ -8,7 +8,7 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  @Column({ select: false })
+  @Column()
   password?: string;
 
   @Column({type: 'text', default: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear()})

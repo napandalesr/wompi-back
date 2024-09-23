@@ -31,6 +31,7 @@ export const productServiceFactory: () => MockType<ProductsService> = jest.fn(
   () => ({
     create: jest.fn(),
     findAll: jest.fn(),
+    findOne: jest.fn(),
   }),
 );
 
