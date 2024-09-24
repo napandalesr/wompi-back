@@ -5,6 +5,11 @@ export class Product {
   @PrimaryGeneratedColumn()
   id?: number;
 
+  @Column({
+    nullable: true
+  })
+  name?: string;
+
   @Column()
   count: number;
 
@@ -27,8 +32,6 @@ export class Product {
   @Column()
   description: string;
 
-  @Column({
-    nullable: true
-  })
-  images?: string;
+  @Column()
+  images: string;
 }

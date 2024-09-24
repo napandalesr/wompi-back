@@ -15,7 +15,6 @@ export class PaymentService {
 
   async create(createPaymentDto: CreatePaymentDto): Promise<Payment>{
     createPaymentDto.reference = this.uuidService.generate();
-    console.log('reference', createPaymentDto.reference);
     const url = `${process.env.WOMPIURL}/transactions`;
     try {
       const response = await lastValueFrom(

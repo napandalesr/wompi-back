@@ -11,7 +11,6 @@ import { Response } from 'express';
 export class ProductsController {
   constructor(@Inject('productsService') private readonly productsService: ProductsService) {}
 
-  @UseGuards(AuthGuard('jwt'))
   @Post()
   async create(@Body() createProductDto: CreateProductDto): Promise<Product> {
     return await this.productsService.create(createProductDto);
