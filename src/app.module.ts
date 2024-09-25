@@ -14,7 +14,7 @@ import { cardsModule } from './infrastructure/cards/cards.module';
       type: 'sqlite',
       database: 'db/sql.sqlite',
       entities: [__dirname + '/**/*.entity.{js,ts}'],
-      synchronize: true,
+      synchronize: false,
       autoLoadEntities: true
     }),
     ConfigModule.forRoot({

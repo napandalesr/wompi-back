@@ -20,10 +20,8 @@ export class AuthService {
   }
 
   async login(email: string, password: string): Promise<{ accessToken: string }> {
-    console.log(email, password);
     
     const user = await this.userService.findByEmail(email);
-    console.log(user);
     
     if (!user || !(await bcrypt.compare(password, user.password))) {
       throw new Error('Crendenciales invalidas');

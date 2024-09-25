@@ -10,6 +10,7 @@ export class CardsService {
   ) {}
 
   async create(createCardsDto: CreateCardsDto): Promise<{token: string}> {
+    
     const url = `${process.env.WOMPIURL}/tokens/cards`;
 
     try {
@@ -37,7 +38,6 @@ export class CardsService {
       )
       
       const { data: { presigned_acceptance } } = response.data;
-      console.log('data', presigned_acceptance);
       return presigned_acceptance;
     } catch (error) {
       console.error('Error creando token de aceptación:', error);
