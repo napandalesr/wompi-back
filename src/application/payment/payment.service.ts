@@ -15,12 +15,15 @@ export class PaymentService {
 
   async create(createPaymentDto: CreatePaymentDto): Promise<Payment>{
     createPaymentDto.reference = this.uuidService.generate();
+    if(typeof createPaymentDto.amount_in_cents === 'string')
+    createPaymentDto.amount_in_cents = parseInt(createPaymentDto.amount_in_cents);
+  
     const url = `${process.env.WOMPIURL}/transactions`;
     try {
       const response = await lastValueFrom(
-        this.httpService.post(url, createPaymentDto, {
+        this.httpService.post(url, {...createPaymentDto}, {
           headers: {
-            Authorization: `Bearer ${process.env.PRIVATE_KEY}`,
+            Authorization: `Bearer ${process.env.PUBLIC_KEY}`,
           },
         }),
       );
