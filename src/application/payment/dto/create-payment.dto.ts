@@ -6,7 +6,7 @@ export class CreatePaymentDto {
   @IsNotEmpty()
   @ApiProperty()
   amount_in_cents: number | string;
-
+  
   @IsString()
   @IsNotEmpty()
   @ApiProperty()

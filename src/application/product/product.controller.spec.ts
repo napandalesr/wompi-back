@@ -20,14 +20,14 @@ describe('Product controller', () => {
           useFactory: repositoryMockFactory,
         },
         {
-          provide: ProductsService,
+          provide: 'productsService',
           useFactory: productServiceFactory,
         },
       ]
     }).compile();
 
     productController = module.get<ProductsController>(ProductsController);
-    productServiceMock = module.get(ProductsService);
+    productServiceMock = module.get('productsService');
   });
 
   it('debe ser definido', async () => {
