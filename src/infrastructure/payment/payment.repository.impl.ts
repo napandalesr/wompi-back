@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Payment } from "src/domain/payment/payment.entity";
-import { PaymentRepository } from "src/domain/payment/payment.repository";
+import { Payment } from "../../domain/payment/payment.entity";
+import { PaymentRepository } from "../../domain/payment/payment.repository";
 import { Repository } from "typeorm";
 
 @Injectable()

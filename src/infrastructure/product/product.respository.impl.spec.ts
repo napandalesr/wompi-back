@@ -37,4 +37,14 @@ describe('Product respository impl', () => {
     expect(productRepositoryMock.save).toHaveBeenCalled();
     expect(productRepositoryMock.save).toHaveBeenCalledWith(productMock);
   });
+
+  it('debería llamar al método find del respositorio desde ProductRepositoryImpl', async () => {
+    await productRepositoryImpl.find()
+    expect(productRepositoryMock.find).toHaveBeenCalled();
+  });
+
+  it('debería llamar al método save del respositorio desde ProductRepositoryImpl', async () => {
+    await productRepositoryImpl.findOne()
+    expect(productRepositoryMock.findOne).toHaveBeenCalled();
+  });
 })

@@ -36,7 +36,7 @@ export class CardsService {
       const response = await lastValueFrom(
         this.httpService.get(url)
       )
-      
+
       const { data: { presigned_acceptance } } = response.data;
       return presigned_acceptance;
     } catch (error) {
